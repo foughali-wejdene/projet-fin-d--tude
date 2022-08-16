@@ -4,15 +4,11 @@ require("config/commandes.php");
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
   $Produits=afficher();
-  $img3=afficherimg();
-  
+
   session_start();
 
 
 ?>
-<img src="<?= $img3 ?>" style="width: 30%">
-
-
 <!doctype html>
 <html lang="fr">
   <head>
@@ -31,7 +27,7 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css">
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   
 
 
@@ -41,45 +37,11 @@ ini_set("display_errors", 1);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 
-<style>
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-
-.block {
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.block:hover {
-  background-color: #ddd;
-  color: black;
-}
-</style>
-</style>
-
-    
   </head>
-  <body>
+  <body style="background-image: url(./images/back.png); background-size: cover;">
     
-  <header class="header" id="header">
+  <header>
         <!-- Top Nav -->
         
         <div class="navigation">
@@ -131,88 +93,15 @@ ini_set("display_errors", 1);
                 </div>
             </div>
         </div>
-
-        <div class="hero">
-            <div class="glide" id="glide_1">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                        <li class="glide__slide">
-                            <div class="center">
-                                <div class="left">
-                                    <span class="">New Inspiration 2022</span>
-                                    <h1 class="">NEW COLLECTION!</h1>
-                                    <p>Trending from men's and women's style collection</p>
-                                    <a href="shop.php" class="hero-btn">SHOP NOW</a>
-                                </div>
-                                <div class="right">
-                                <img src="<?= $img3 ?>" style="width: 30%">
-                                </div>
-                               
-                            </div>
-                        </li>
-                        <li class="glide__slide">
-                            <div class="center">
-                                <div class="left">
-                                    <span>New Inspiration 2022</span>
-                                    <h1>THE PERFECT MATCH!</h1>
-                                    <p>Trending from men's and women's style collection</p>
-                                    <a href="product.html" class="hero-btn">SHOP NOW</a>
-                                </div>
-                                <div class="right">
-                                    <img class="img2" src="./images/hero-2.png" alt="">
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
     </header>
 
 <main>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-      <?php foreach($Produits as $produit): ?> 
-        <div class="col">
-          <div class="card shadow-sm">
-          <img src="<?= $produit->image ?>" style="width: 100%">
-          <div style="margin: 0 0 30px 0;"> </div>
-            <h3><?= $produit->nom ?></h3>
-            
-            
-            <div class="card-body" >
-             
-            <small class="text" style="font-weight: bold;"><?= $produit->prix ?> €</small>
-              <div class="d-flex justify-content align-items" style = " padding-left: 150px; margin-top: -40px;">
-                <div class="btn-group"  >
-               
-
-                  <a href="produit.php?pdt=<?= $produit->id ?>">
-                  <a href="cart.html" class="icon">
-                        <i class="bx bx-cart"></i>
-                    
-                    </a>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-  <?php endforeach; ?>
-
-
-      </div>
+    <div class = "home" >
+        <h1 class = "titre" style = "font-family: 'Abel'; color: #3F3F3F; height: 90px; line-height: 80px;text-align: center;"> CHEZ WIK </h1>
     </div>
-  </div>
-
 </main>
 
+
   </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
-<script src="./js/slider.js"></script>
-<script src="./js/index.js"></script>
 </html>

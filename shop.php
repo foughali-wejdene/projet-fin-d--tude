@@ -72,7 +72,7 @@ require("config/commandes.php");
 
     
   </head>
-  <body>
+  <body style="background-image: url(./images/back.png); background-size: cover;">
     
   <header class="header" id="header">
         <!-- Top Nav -->
@@ -128,8 +128,11 @@ require("config/commandes.php");
         </div>
 
 <main>
+<div class = "home" >
+        <h1 class = "titre" style = "font-family: 'Abel'; color: #3F3F3F; height: 90px; line-height: 80px;text-align: center;"> CHEZ WIK </h1>
+    </div>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-light" style="background-image: url(./images/back.png); background-size: cover;">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

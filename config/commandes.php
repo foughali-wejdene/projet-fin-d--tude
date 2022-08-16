@@ -115,14 +115,64 @@ function supprimer($id)
 function afficherimg()
 {
   if(require("connexion.php"))
-    {
-   
-      $req=$access->prepare("SELECT image from produits WHERE id=6");
-      $req->execute();
+  {
+    
+  $req = $access->prepare("select image from produits where id = 5 ");
+    
+
+  $req->execute(array($id));
+//vérifier si il y'a un utilisateur qui correspon a l'email et le mot de passe que j'ai donné
+    if($req->rowCount() == 1){
+      //dans ce cas je créer un variable qui va récuperer les informations en question
+
       $data = $req->fetchAll(PDO::FETCH_OBJ);
 
       return $data;
-      $req->closeCursor();
+
+    }
+    else {
+      return false;
+    }
+
+  $req->closeCursor();
+  }
+}
+
+
+function ajoutermember($pseudo, $mail, $mdp)
+{
+  if(require("connexion.php"))
+  {
+    
+    $req = $access->prepare("INSERT INTO membre (pseudo, email, motdepasse  ) VALUES (?, ?, ?)");
+    
+
+    $req->execute(array($pseudo, $mail, $mdp));
+
+    $req->closeCursor();
+  }
+}
+
+
+function verifmail($mail)
+{
+    if (require("connexion.php"))
+    {
+        $req = $access->prepare("SELECT * FROM membre where email = ?");
+        
+        $req->execute(array($mail));
+        if($req->rowCount() > 0){
+          //dans ce cas je créer un variable qui va récuperer les informations en question
+    
+          $data = $req->fetchAll(PDO::FETCH_OBJ);
+    
+          return $data;
+    
+        }
+        else {
+          return false;
+        }
+
     }
 }
 ?>
