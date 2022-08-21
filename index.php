@@ -1,14 +1,11 @@
 <?php
-
-require("config/commandes.php");
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-  $Produits=afficher();
-
-  session_start();
+session_start();
+include "commun/header.php";      
+//print_r($_SESSION['id']);
 
 
 ?>
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -39,69 +36,66 @@ ini_set("display_errors", 1);
 
 
   </head>
+        
   <body style="background-image: url(./images/back.png); background-size: cover;">
     
-  <header>
-        <!-- Top Nav -->
-        
-        <div class="navigation">
-            <div class="nav-center container d-flex">
-                <a href="index.php"class="logo">
-                    <h1>WIK</h1>
-                </a>
-
-                <ul class="nav-list d-flex">
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="shop.php" class="nav-link">SHOP</a>
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login.php" class="nav-link">ACOUNT</a>
-                    </li>
-
-
-                </ul>
-
-                <div class="icons d-flex">
-                    <a href="login.php" class="icon">
-                        <i class="bx bx-user"></i>
-                    </a>
-                    <a href="search.html" class="icon">
-                        <i class="bx bx-search"></i>
-                    </a>
-                    <div class="icon">
-                        <i class="bx bx-heart"></i>
-                        <span class="d-flex">0</span>
-                    </div>
-                    <a href="cart.html" class="icon">
-                        <i class="bx bx-cart"></i>
-                        <span class="d-flex">0</span>
-                    </a>
-                    <a href="deconnexion.php" class="icon">
-                        <i class="bx bx-log-out"></i>
-                    </a>
-                </div>
-
-                <div class="hamburger">
-                    <i class="bx bx-menu-alt-left"></i>
-                </div>
-            </div>
-        </div>
-        
-    </header>
-
+  
 <main>
     <div class = "home" >
         <h1 class = "titre" style = "font-family: 'Abel'; color: #3F3F3F; height: 90px; line-height: 80px;text-align: center;"> CHEZ WIK </h1>
+                <div class="container" style="display: flex; justify-content: center">
+
+
+                    <div style = "font-family: 'Work Sans';font-style: normal;font-weight: 40px;font-size: 15px;  margin-top: 150px;margin-right: 20px;">
+                            <a href="shop.php" >SHOP NOW</a>    
+                    </div>   
+                    <?php foreach($Produits as $produit){ 
+                        if($produit->id == 3){
+                    ?> 
+                            <div class="col-md-8" >
+                                    <img style="float: left; width: 30%" src="<?= $produit->image ?>" style="width: 20%">  
+                        </div>    
+
+                    <?php }} ?>
+
+                </div>
+                        </br> </br>  </br>  </br>  </br>
+
+                <div class="container" style="display: flex; justify-content: center">
+                   
+                    <?php foreach($Produits as $produit){ 
+                        if($produit->id == 10){
+                    ?> 
+                            <div class="col-md-8" >
+                                    <img style="float: left; width: 30%; margin-right: 360px;" src="<?= $produit->image ?>" style="width: 20%">  
+                                    <p style = "font-family: 'Work Sans';font-style: normal;font-weight: 40px;font-size: 15px;  margin-top: 150px;">Bringing fashion back to its original and classic form</p>  
+                            </div>      
+
+                    <?php }} ?>
+
+                </div>
+
+                </br> </br>  </br>  </br>  </br>
+
+                <div class="container" style="display: flex; justify-content: center">
+                
+                    <?php foreach($Produits as $produit){ 
+                        if($produit->id == 7){
+                    ?> 
+                            <div class="col-md-8" >
+                                    <img style="float: left; width: 30%; margin-right: 360px;" src="<?= $produit->image ?>" style="width: 20%">  
+                                    <p style = "font-family: 'Work Sans';font-style: normal;font-weight: 40px;font-size: 15px;  margin-top: 150px;">Bringing fashion back to its original and classic form</p>  
+                            </div>      
+
+                    <?php }} ?>
+
+                </div>
     </div>
+    
 </main>
 
 
   </body>
 </html>
+<?// }
+?>

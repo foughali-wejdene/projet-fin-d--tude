@@ -8,7 +8,7 @@ if(isset($_SESSION['xRttpHo0greL393']))
     //dériger l'user sur la page index.ph
     header("Location: ../");
 }else {
-    header("Location: ../login.php");
+    header("Location: ../compte_client.php");
 }
 
 ?>

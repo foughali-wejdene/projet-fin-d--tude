@@ -2,7 +2,7 @@
 //une fonction pour démarer la session
 session_start();
 include("config/commandes.php");
-
+/*
 if(isset($_SESSION['xRttpHo0greL393']))
 {
     if(!empty($_SESSION['xRttpHo0greL393']))
@@ -10,7 +10,7 @@ if(isset($_SESSION['xRttpHo0greL393']))
         header("Location: admin/afficher.php");
     }
 }
-
+*/
     
 
 ?>
@@ -70,9 +70,11 @@ if(isset($_SESSION['xRttpHo0greL393']))
         //POUR SÉCURISER LES VARIABLES AVEC HTMLSPECIALCHARS
         $email = htmlspecialchars ($_POST['email']);
         $motdepasse= htmlspecialchars($_POST['motdepasse']);
+
+
         $admin = getAdmin($email, $motdepasse);
 
-        if($admin){
+        /*if($admin){
             //créer une session
             $_SESSION['xRttpHo0greL393'] = $admin;
             //dériger l'utilisateur qui a mis les veritable information vers la page admin 
@@ -80,7 +82,7 @@ if(isset($_SESSION['xRttpHo0greL393']))
         }
         else{
             echo " Problème de connxion";
-        }
+        }*/
        } 
 
     }

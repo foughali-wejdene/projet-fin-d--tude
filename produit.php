@@ -1,15 +1,11 @@
 <?php
-
-session_start();
-include "commun/header.php";     
-
+session_start();    
+include "commun/header.php"; 
 ?>
 
-
-
 <!doctype html>
-<html lang="fr">
-  <head>
+<html lang="en">
+<head>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -67,61 +63,47 @@ include "commun/header.php";
   color: black;
 }
 </style>
-</style>
-
+</head>
+<body style="background-image: url(./images/back.png); background-size: cover;">
     
-  </head>
-  <body style="background-image: url(./images/back.png); background-size: cover;">
-    
-  
 <main>
-<div class = "home" >
-        <h1 class = "titre" style = "font-family: 'Abel'; color: #3F3F3F; height: 90px; line-height: 80px;text-align: center;"> CHEZ WIK </h1>
-    </div>
 
-  <div class="album py-5 bg-light" style="background-image: url(./images/back.png); background-size: cover;">
-    <div class="container">
+<div class="container" style="display: flex; justify-content: center">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="row">
+<div class="col-md-2" ></div>
+<?php foreach($Produits as $produit)
+{ if($produit->id == $id){ ?> 
+        <div class="col-md-8">
+</br></br></br></br></br></br>
+                <img src="<?= $produit->image ?>" style="width: 50%">
 
-      <?php foreach($Produits as $produit): ?> 
-        <div class="col">
-          <div class="card shadow-sm">
-          <a href="produit.php?pdt=<?= $produit->id ?>">
-          <img src="<?= $produit->image ?>" style="width: 100%">
-          </a>
-          <div style="margin: 0 0 30px 0;"> </div>
-          
-            <h3><a href="produit.php?pdt=<?= $produit->id ?>"><?= $produit->nom ?> </a></h3>
-           
-            
-            <div class="card-body" >
-            <small class="text" style="font-weight: bold;"><?= $produit->prix ?> €</small>
-              <div class="d-flex justify-content align-items" style = " padding-left: 150px; margin-top: -40px;">
+
+                <h3 align="center"><?= $produit->nom ?></h3>
                 
-               
 
-                  <a href="produit.php?pdt=<?= $produit->id ?>">
-                  <a href="cart.html" class="icon">
-                        <i class="bx bx-cart"></i>
-                    </a>
+                <div class="card-body">
+                <p class="card-text"><?= $produit->description ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-success">Commander</button></a>
+                    </div>
+                    <small class="text" style="font-weight: bold;"><?= $produit->prix ?> €</small>
+                </div>
                 
-                
-              </div>
+
             </div>
-          </div>
-        </div>
-  <?php endforeach; ?>
+<?php }} ?>
 
-
-      </div>
+<div class="col-md-2"></div>
     </div>
-  </div>
+</div>
+</div>
 
 </main>
-
-  </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
-<script src="./js/slider.js"></script>
-<script src="./js/index.js"></script>
+<br>
+<br>
+<br>
+<br>
+</body>
 </html>

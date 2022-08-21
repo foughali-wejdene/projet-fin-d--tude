@@ -3,7 +3,7 @@
 session_start();
 
 require("../config/commandes.php");
-
+/*
 if(!isset($_SESSION['xRttpHo0greL393']))
 {
     header("Location: ../login.php");
@@ -19,8 +19,11 @@ if(empty($_SESSION['xRttpHo0greL393']))
     foreach($_SESSION['xRttpHo0greL393'] as $i){
       $nom = $i->pseudo;
       $email = $i->email;
-    }
+    }*/
+    //sécuriser le site
 
+
+ 
 ?>
 
 <!doctype html>
@@ -122,40 +125,5 @@ if(empty($_SESSION['xRttpHo0greL393']))
 </body>
 </html>
 <?php
-//vérifier les données 
-    if(isset($_POST['valider']))
-    {
-        if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['nbp']) AND isset($_POST['prix']) AND isset($_POST['desc']) AND isset($_POST['couleur'])AND isset($_POST['taille']) AND isset($_POST['ref']))
-        {
-            //vérifier si  les données sont pas vide 
-            if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['nbp']) AND !empty($_POST['prix']) AND !empty($_POST['desc']) AND !empty($_POST['couleur']) AND !empty($_POST['taille']) AND !empty($_POST['ref']))
-            {
-                //récuperer les données 
-                $image = htmlspecialchars(strip_tags($_POST['image']));
-                $nom = htmlspecialchars(strip_tags($_POST['nom']));
-                $nbp = htmlspecialchars(strip_tags($_POST['nbp']));
-                $prix = htmlspecialchars(strip_tags($_POST['prix']));
-                $desc = htmlspecialchars(strip_tags($_POST['desc']));
-                $couleur = htmlspecialchars(strip_tags($_POST['couleur']));
-                $taille = htmlspecialchars(strip_tags($_POST['taille']));
-                $ref = htmlspecialchars(strip_tags($_POST['ref']));
-                
-            //script_tags c pour filtrer les données
-
-            //si il y'a un problème il affiche un msg 
-            try 
-            {
-              ajouter($image, $ref, $nom,  $taille, $couleur, $nbp, $prix, $desc);
-              //header('Location: afficher.php');
-            } 
-            catch (Exception $e) 
-            {
-                $e->getMessage();
-            }  
-
-
-            
-            }
-        }
-    }
+  
 ?>

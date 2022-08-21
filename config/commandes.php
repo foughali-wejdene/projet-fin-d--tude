@@ -29,6 +29,96 @@ function getProduit($id){
 
 }
 
+
+
+
+function getIdUser($id){
+
+  if(require("connexion.php"))
+  {
+    
+  $req = $access->prepare("select * from membre where id = ? ");
+    
+
+  $req->execute(array($id));
+  //vérifier si il y'a un utilisateur qui correspon a l'email et le mot de passe que j'ai donné
+  if($req->rowCount() == 1){
+    //dans ce cas je créer un variable qui va récuperer les informations en question
+
+    $data = $req->fetch();
+
+    return $data;
+
+  }
+  else {
+    return false;
+  }
+
+$req->closeCursor();
+
+}
+
+  }
+
+
+
+  function modifierUser($id, $pseudo, $email, $mdp)
+  {
+    if(require("connexion.php"))
+    {
+      
+      $req = $access->prepare("UPDATE membre set pseudo = ?, email = ?, motdepasse = ? where id = ?");
+      
+  
+      $req->execute(array($id, $pseudo, $email, $mdp));
+  
+      $req->closeCursor();
+    }
+  }
+
+
+
+
+
+
+
+// récuperer les information d'utilisateur 
+function getUser($email, $password){
+
+  if(require("connexion.php"))
+  {
+    
+  $req = $access->prepare("SELECT * FROM membre where email = ? AND motdepasse = ?");
+    
+
+  $req->execute(array($email, $password));
+//vérifier si il y'a un utilisateur qui correspon a l'email et le mot de passe que j'ai donné
+    if($req->rowCount() == 1){
+      //dans ce cas je créer un variable qui va récuperer les informations en question
+
+      $data = $req->fetch();
+
+      return $data;
+
+    }
+    else {
+      return false;
+    }
+
+  $req->closeCursor();
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
 // récuperer les information d'utilisateur 
 function getAdmin($email, $password){
 
@@ -88,6 +178,8 @@ function afficher ()
 
     }
 }
+
+
 
 function modifier($image, $ref, $nom, $taille , $nbp ,$couleur, $prix, $desc, $id)
 {
@@ -175,4 +267,6 @@ function verifmail($mail)
 
     }
 }
+
+
 ?>
