@@ -10,7 +10,7 @@ function getProduit($id){
     
 
   $req->execute(array($id));
-//vérifier si il y'a un utilisateur qui correspon a l'email et le mot de passe que j'ai donné
+
     if($req->rowCount() == 1){
       //dans ce cas je créer un variable qui va récuperer les informations en question
 
@@ -119,7 +119,7 @@ function getUser($email, $password){
 
 
 
-// récuperer les information d'utilisateur 
+// récuperer les information d'admin 
 function getAdmin($email, $password){
 
   if(require("connexion.php"))

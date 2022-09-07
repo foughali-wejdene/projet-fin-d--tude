@@ -1,5 +1,9 @@
-<?php
-session_start();
+<?php  
+require("../config/commandes.php");
+
+$Produits=afficher();
+
+/*session_start();
 
 if(!isset($_SESSION['xRttpHo0greL393']))
 {
@@ -13,12 +17,13 @@ if(empty($_SESSION['xRttpHo0greL393']))
     require("../config/commandes.php");
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-    $Produits=afficher();
+  
 
 foreach($_SESSION['xRttpHo0greL393'] as $i){
     $nom = $i->pseudo;
     $email = $i->email;
   }
+  */
 ?>
 <!doctype html>
 <html>

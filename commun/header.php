@@ -3,13 +3,13 @@
 //session_start();
 
 require("config/commandes.php");
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+
 
         
-$id = $_GET['id'];
+//$id = $_GET['id'];
+//$qte = $_GET['qte'];
 //récuperer id
-$Produits = getProduit($id);
+//$Produits = getProduit($id);
 $Produits=afficher();
 
 if(isset($_GET['pdt'])){
@@ -47,7 +47,7 @@ if(isset($_GET['pdt'])){
                     
                    
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">ABOUT US</a>
+                        <a href="about.php" class="nav-link">ABOUT US</a>
                     </li>
                     <li class="nav-item">
                     <a href="profile.php?id=<?php echo $_SESSION['id'];?>"  class="nav-link">ACOUNT</a>
@@ -60,18 +60,18 @@ if(isset($_GET['pdt'])){
                     <a href="profile.php?id=<?php echo $_SESSION['id'];?>" class="icon">
                         <i class="bx bx-user"></i>
                     </a>
-                    <a href="search.html" class="icon">
+                    <a href="search.php" class="icon">
                         <i class="bx bx-search"></i>
                     </a>
                     <div class="icon">
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
                     </div>
-                    <a href="cart.html" class="icon">
+                    <a href="panier.php?id=<?php echo $_SESSION['id'];?>" class="icon">
                         <i class="bx bx-cart"></i>
                         <span class="d-flex">0</span>
                     </a>
-                    <a href="deconnexion.php?id=<?php echo $_SESSION['id'];?>" class="icon">
+                    <a href="deconnexion.php" class="icon">
                         <i class="bx bx-log-out"></i>
                     </a>
                 </div>
@@ -103,7 +103,7 @@ if(isset($_GET['pdt'])){
                                     
                                    
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">ABOUT US</a>
+                                        <a href="about.php" class="nav-link">ABOUT US</a>
                                     </li>
                                     <li class="nav-item">
                                     <a href="compte_client.php"  class="nav-link">ACOUNT</a>
@@ -123,7 +123,7 @@ if(isset($_GET['pdt'])){
                                         <i class="bx bx-heart"></i>
                                         <span class="d-flex">0</span>
                                     </div>
-                                    <a href="cart.html" class="icon">
+                                    <a href="panier.php" class="icon">
                                         <i class="bx bx-cart"></i>
                                         <span class="d-flex">0</span>
                                     </a>

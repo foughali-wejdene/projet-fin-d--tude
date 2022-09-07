@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+require("../config/commandes.php");
+
+    $Produits=afficher();
+
+/*session_start();
 
 if(!isset($_SESSION['xRttpHo0greL393']))
 {
@@ -19,6 +24,7 @@ foreach($_SESSION['xRttpHo0greL393'] as $i){
     $nom = $i->pseudo;
     $email = $i->email;
   }
+  */
 ?>
 <!doctype html>
 <html>

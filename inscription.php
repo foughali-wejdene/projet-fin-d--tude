@@ -198,7 +198,6 @@
             <br />
         </form>
         <?php
-        // si existe
          if (isset($erreur))
          {
              echo '<font color = "red">' .$erreur."</font>";

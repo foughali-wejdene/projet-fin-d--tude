@@ -1,6 +1,6 @@
 <?php
 //une fonction pour démarer la session
-session_start();
+//session_start();
 include("config/commandes.php");
 /*
 if(isset($_SESSION['xRttpHo0greL393']))

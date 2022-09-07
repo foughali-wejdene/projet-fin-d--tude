@@ -6,7 +6,7 @@ require("../config/commandes.php");
 $id = $_GET['id'];
 //récuperer id
 $Produits = getProduit($id);
-
+/*
 if(!isset($_SESSION['xRttpHo0greL393']))
 {
     header("Location: ../login.php");
@@ -38,7 +38,7 @@ if(empty($_GET['id']) OR !is_numeric($_GET['id'])){
       $email = $i->email;
       
     }
-
+*/
 ?>
 
 <!doctype html>
@@ -76,7 +76,7 @@ if(empty($_GET['id']) OR !is_numeric($_GET['id'])){
         <div style="margin-right: 500px">
         <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: <?= $nom ?></h5>
         </div>
-        <a class="btn btn-danger d-flex" style="display: flex; justify-content: flex-end;" href="destroy.php">Se deconnecter</a>
+        <a class="btn btn-danger d-flex" style="display: flex; justify-content: flex-end;" href="deconnexion.php">Se deconnecter</a>
     </div>
   </div>
 </nav>
@@ -143,10 +143,12 @@ if(empty($_GET['id']) OR !is_numeric($_GET['id'])){
 //vérifier les données 
     if(isset($_POST['valider']))
     {
-        if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['nbp']) AND isset($_POST['prix']) AND isset($_POST['desc']) AND isset($_POST['couleur'])AND isset($_POST['taille']) AND isset($_POST['ref']))
+        if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['nbp']) AND isset($_POST['prix']) AND isset($_POST['desc'])
+         AND isset($_POST['couleur'])AND isset($_POST['taille']) AND isset($_POST['ref']))
         {
             //vérifier si  les données sont pas vide 
-            if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['nbp']) AND !empty($_POST['prix']) AND !empty($_POST['desc']) AND !empty($_POST['couleur']) AND !empty($_POST['taille']) AND !empty($_POST['ref']))
+            if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['nbp']) AND !empty($_POST['prix']) AND !empty($_POST['desc'])
+             AND !empty($_POST['couleur']) AND !empty($_POST['taille']) AND !empty($_POST['ref']))
             {
                 //récuperer les données 
                 $image = htmlspecialchars(strip_tags($_POST['image']));
